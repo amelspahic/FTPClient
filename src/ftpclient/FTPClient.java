@@ -154,6 +154,7 @@ public class FTPClient implements BaseFTPClient {
      * Gets formatted statistics for filename, total size, average transfer speed and total time for upload
      * @return
      */
+    @Override
     public synchronized String getStatistics(){
 
         StringBuilder stringBuilder = new StringBuilder();

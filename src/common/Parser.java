@@ -1,6 +1,5 @@
 package common;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import model.Parameter;
 
 import java.io.IOException;
@@ -10,10 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by amelsp on 7/8/2017.
- */
 public class Parser {
+
     static String filesDelimiter = ";";
 
     /**

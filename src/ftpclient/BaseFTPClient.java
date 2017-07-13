@@ -48,4 +48,10 @@ public interface BaseFTPClient {
      * @throws Exception
      */
     void login(String username, String password) throws Exception;
+
+    /**
+     * Returns formatted statistics
+     * @return
+     */
+    String getStatistics();
 }

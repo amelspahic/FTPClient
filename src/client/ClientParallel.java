@@ -1,13 +1,13 @@
 package client;
 
+import common.FTPClientType;
+import ftpclient.BaseFTPClient;
+import ftpclient.FTPClientFactory;
 import model.Parameter;
 
 import java.util.*;
 import java.util.concurrent.*;
 
-/**
- * Created by amelsp on 7/12/2017.
- */
 public class ClientParallel implements Client {
     Parameter connectionParameter;
 
@@ -28,12 +28,12 @@ public class ClientParallel implements Client {
 
                 @Override
                 public String call() throws Exception {
-                    ftpclient.FTPClient FTPClient = new ftpclient.FTPClient(threadNum);
-                    FTPClient.connect(connectionParameter.getServer(), connectionParameter.getUsername(), connectionParameter.getPassword());
-                    FTPClient.setBinaryMode();
-                    FTPClient.sendFile(file);
-                    FTPClient.disconnect();
-                    return FTPClient.getStatistics();
+                    BaseFTPClient ftpCli = FTPClientFactory.getFTPClientWithThreads(FTPClientType.AMEL_CLIENT, threadNum);
+                    ftpCli.connect(connectionParameter.getServer(), connectionParameter.getUsername(), connectionParameter.getPassword());
+                    ftpCli.setBinaryMode();
+                    ftpCli.sendFile(file);
+                    ftpCli.disconnect();
+                    return ftpCli.getStatistics();
                 }
             });
 

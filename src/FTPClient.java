@@ -14,5 +14,6 @@ public class FTPClient {
         Parameter connectionParameter = Parser.parseParameters(args);
         Client client = ClientFactory.getClient(ClientType.PARALLEL);
         client.init(connectionParameter);
+
     }
 }
